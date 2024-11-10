@@ -19,7 +19,7 @@ def get_resolution(filename):
                '-show_entries', 'stream=width,height', '-of', 'csv=p=0', filename]
     with sp.Popen(command, stdout=sp.PIPE, bufsize=-1) as pipe:
         for line in pipe.stdout:
-            w, h = line.decode().strip().split(',')
+            w, h = line.decode().strip().split(',')[:2]
             return int(w), int(h)
             
 def get_fps(filename):
@@ -28,6 +28,7 @@ def get_fps(filename):
     with sp.Popen(command, stdout=sp.PIPE, bufsize=-1) as pipe:
         for line in pipe.stdout:
             a, b = line.decode().strip().split('/')
+            a, b = a.replace(',', ''), b.replace(',', '')
             return int(a) / int(b)
 
 def read_video(filename, skip=0, limit=-1):

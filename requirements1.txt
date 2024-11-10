@@ -10,12 +10,12 @@ comm==0.2.2
 cycler==0.12.1
 debugpy==1.8.7
 decorator==5.1.1
--e git+https://github.com/facebookresearch/detectron2.git@8d85329aed8506ea3672e3e208971345973ea761#egg=detectron2
+# -e git+https://github.com/facebookresearch/detectron2.git@8d85329aed8506ea3672e3e208971345973ea761#egg=detectron2
 executing==2.1.0
 filelock==3.16.1
 fsspec==2024.10.0
 fvcore==0.1.5.post20221221
-hydra-core==1.4.0.dev1
+hydra-core #==1.4.0.dev1
 install-jdk==1.1.0
 iopath==0.1.9
 ipykernel==6.29.5

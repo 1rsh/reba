@@ -137,7 +137,7 @@ dimension = list(np.array(b).shape)
 
 
 def reba():
-    oir_path = 'output.mp4'
+    oir_path = 'new_op.mp4'
     dir_path = 'reba.mp4'
     cap = cv2.VideoCapture(oir_path)
     out_file =  os.path.abspath(dir_path)

@@ -60,7 +60,7 @@ def get_resolution(filename):
                '-show_entries', 'stream=width,height', '-of', 'csv=p=0', filename]
     pipe = sp.Popen(command, stdout=sp.PIPE, bufsize=-1)
     for line in pipe.stdout:
-        w, h = line.decode().strip().split(',')
+        w, h = line.decode().strip().split(',')[:2]
         return int(w), int(h)
 
 def read_video(filename):
@@ -137,8 +137,8 @@ def main(args):
         segments = []
         keypoints = []
 
-        # for frame_i, im in enumerate(read_video(video_name)):
-        for frame_i, im in enumerate(read_camera(video_name)):
+        for frame_i, im in enumerate(read_video(video_name)):
+        # for frame_i, im in enumerate(read_camera(video_name)):
             t = time.time()
             outputs = predictor(im)['instances'].to('cpu')
             
